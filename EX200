@@ -1,0 +1,191 @@
+Enter maintanance mode when startup:
+Interrupt at the grub prompmt, press any key to enter menu - press letter 'e' to edit the kernel. 
+On the line which includes the vmlinuz add - 'systemd.unit=emergency.target' then press control+x to boot. Login with root to do maintanience.
+
+Enter sysroot to reset root password :
+
+Interrupt at the grub prompmt, press any key to enter menu - press letter 'e' to edit the kernel. 
+On the line which includes the vmlinuz add - 'rd.break' then press control+x to boot. > mount -o remount,w /sysroot > chroot /sysroot > passwd to reset the 
+password > touch /.autorelabel (for relabeing the security context)
+
+To persistantly boot on different kernel(0,1,2,3...):
+sudo grub2-set-default 1
+
+To persistantly boot on different systemd target:
+systemctl get-default
+systemctl set-default multi-user
+
+System Services(daemon):
+systemd services - uses systemctl to manage the system unit files
+
+systemctl list-unit-files -at service
+systemctl list-units -at service
+systemctl list-units -t service --state=running
+
+  438  systemctl list-unit-files -at service
+  439  systemctl list-units -at service
+  440  systemctl list-units -t service --status=running
+  441  systemctl list-units -t service --state=running
+  443  systemctl list-unit-files -at service
+  446  systemctl list-units -at service
+  448  systemctl list-unit -t service --state=running
+  449  systemctl list-units -t service --state=running
+  450  systemctl list-units -t service --state=stopped
+  451  systemctl list-units -t service --state=stop
+  452  systemctl list-units -t service --state=dead
+  453  systemctl list-units -t service --state=inactive
+  454  clear
+  455  systemctl list-units -t service --state=inactive
+  456  systemctl cat rsyslog
+  457  systemctl cat loadmodules
+  458  clear
+  459  systemctl list-units -t service --state=dead
+  460  systemctl cat fcoe
+  461  systemctl cat fcoe.service
+  462  systemctl cat network
+  463  systemctl cat microcode
+  464  systemctl cat rsyslog
+  465  clear
+  466  systemctl cat rsyslog
+  467  clear
+  468  systemctl status rsyslog
+  469  systemctl list-unit-files -at service
+  470  clear
+  471  systemctl list-unit-files -at service
+  472  sudo systemctl stop atd
+  473  systemctl status atd
+  474  sudo systemctl start atd
+  475  systemctl status atd
+  476  clear
+  477  sudo systemctl restart atd
+  478  systemctl is-active atd
+  479  sudo systemctl mask atd
+  480  sudo systemctl start atd
+  481  sudo systemctl unmask atd
+  482  systemctl list-unit-files -at service
+  483  sudo systemctl disable atd
+  484  systemctl list-unit-files -at service
+  485  systemctl is-enabled atd
+  486  sudo systemctl enable atd
+  487  systemctl is-enabled atd
+  488  systemctl status atd
+
+
+492  hostnamectl
+  493  cat /etc/hostname 
+  494  cat /etc/hosts
+  495  cat /etc/resolv.conf 
+  496  echo "network-manager"
+  497  echo "ethernet--eth0, wireless--wlan0"
+  498  echo "firmware-eno1,pciexpressslot-ens1,pcislot-enp1s1"
+  499  ip
+  500  nm-cli
+  501  nm-tui
+  502  nm-connection-editor
+  503  ip addr
+  504  ip a
+  505  clear
+  506  ip a
+  507  nmtui
+  508  clear
+6  cat /etc/host
+   12  vim hosts 
+   13  sudo vim hosts
+   14  ping rhhost1.localnet.com
+   15  ping rhhost2.localnet.com
+   16  ssh -l user1  rhhost2.localnet.com
+   17  sudo vim hosts
+   29  sysstat
+   30  sudo dnf intall -y sysstat
+   31  sudo dnf install -y sysstat
+   32  sudo systemctl status sysstat
+   33  sudo systemctl start sysstat
+   34  clear
+   35  sudo systemctl status sysstat
+   36  sudo /usr/lib/systemd/system/sysstat-collect.timer
+   37  cd /usr/lib/systemd/
+   38  ls
+   48  ls sudo less /etc/hosts
+   49  ls sudo cat  /etc/hosts
+   50  cd /etc/
+   51  ls
+   56  cd /boot/grub2/
+   57  su root
+   58  clear
+
+
+59  timedatectl
+   60  timedatectl -help
+   61  timedatectl status
+   62  timedatectl list-timezones
+   63  timedatectl list-timezones | grep India
+   64  timedatectl list-timezones | grep Asia
+   65  timedatectl list-timezones | grep Asia/K
+   66  timedatectl list-timezones | grep Asia/Kol
+   67  clear
+   68  timedatectl set-timezone Asia/Kabul
+   69  clear
+   70  datetimectl
+   71  timedatectl
+   72  sudo timedatectl set-timezone Asia/Kabul
+   73  timedatectl
+   74  sudo timedatectl set-timezone Asia/Kol
+   75  sudo timedatectl set-timezone Asia/Kolkata
+   76  timedatectl 
+   77  clearclear
+   78  clear
+   79  timedatectl
+   80  timedatectl -help
+   81  timedatectl set-ntp true
+   82  timedatectl
+   83  sudo yum install -y at
+   84  sudo systemctl start atd
+   85  sudo systemctl enable atd
+   86  clear
+
+87  at now +5min
+   88  atq
+   89  at -c 1
+   90  atrm 1
+   91  atq
+   92  at -c 1
+   93  clear
+   94  batch
+   95  atq
+   96  batch
+   97  atq
+   98  ls -l ~/batchfile.txt 
+cd /etc/cron.d
+   62  ls
+   63  claer
+   64  clear
+   65  vim backupdocs
+   66  ls
+   67  ls -d /etc/cron.*
+   68  ls /etc/cron.*
+   69  ls /etc/at.*
+   70  ls /etc/cron.*
+   71  sudo vi /etc/security/access.conf 
+100  clear
+  101  echo "/var/spool/cron/<user>"
+  102  echo "/etc/cron.d"
+  103  echo "45 23 * * 6 /home/grant/bin/backup.sh --cron job format"
+  104  sudo yum install -y cronie crontab
+  105  sudo yum install -y cronie crontabs
+  106  systemctl status crontabs
+  107  systemctl status cronie
+  108  systemctl status crond
+  109  clear
+  110  systemctl enable crond
+  111  clear
+  112  crontab -e
+  113  crontab -l
+  114  rsync -help
+  115  clear
+  116  cd /etc/cron.d
+  117  ls
+  118  pwd
+  119  ls -l
+  120  cat 0hourly 
+  121  cat raid-check 
+  122  su - user1
