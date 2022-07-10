@@ -189,3 +189,429 @@ cd /etc/cron.d
   120  cat 0hourly 
   121  cat raid-check 
   122  su - user1
+  
+  Input-Output:
+   find /etc | sort | tee etcsort.txt | wc -l
+  144  find /etc 2> etcerr.txt | sort | tee etcsort.txt | wc -l
+  145  ls
+  146  cat etcerr.txt 
+  147  cat etcsort.txt 
+  148  clear
+  149  find /etc &> /dev/null 
+  150  echo "grep uses"
+  151  grep '^http.*tcp.*services$' /etc/services 
+  152  grep '.*services$' /etc/services 
+  153  grep '*.services$' /etc/services 
+  154  grep '.*services$' /etc/services 
+  155  grep '.*services' /etc/services 
+  156  egrep '^http.*(tcp|udp).*services$' /etc/services 
+  157  sudo tar --xattrs -cvpf etc.tar /etc
+  158  ls -lh
+  159  sudo tar --gzip --xattrs -cvpf etc.tar.gz /etc
+  160  sudo tar --bzip2 --xattrs -cvpf etc.tar.bz2 /etc
+  161  sudo tar --xz --xattrs -cvpf etc.tar.xz /etc
+  162  ls -lh
+  163  sudo tar --xattrs -xvpf etc.tar
+  164  ls -lh
+  165  cd etc/
+  166  ls
+  167  sudo tar --xattr -xpvf etc.tar.gz
+  168  sudo tar --xattrs -xpvf etc.tar.gz
+  169  sudo tar --xattrs -xpvf etc.tar.bz2
+  170  cd ..
+  171  sudo tar --xattrs -xpvf etc.tar.gz
+  172  sudo tar --xattrs -xpvf etc.tar.bz2
+  173  ls
+  174  ls -lh
+  175  sudo tar --xattrs -xpvf etc.tar.bz2 -C ~/Downloads/
+  176  ls ~/Downloads/
+  177  ls -lh ~/Downloads/
+  178  pwd
+  179  cp /etc/services .
+  180  ls
+  181  gzip services
+  182  ls -lh
+  183  gunzip services.gz 
+  184  ls -lh
+  185  rm *.etc
+  186  rm etc.*
+  187  ls
+  188  rm etc.*
+  189  ls
+  190  clear
+  191  ls
+  192  ls -lh
+  193  rm *etc
+  194  rm *.etc
+  195  rm etc*
+  196  rm etc.*
+  197  rm -R etc.*
+  198  rm -r etc.*
+  199  rm -rf etc.*
+  200  ls
+  201  clear
+  202  ls -lh
+  203  bzip2 services 
+  204  ls -lh
+  205  bunzip2 services.bz2 
+  206  xzip services 
+  207  xz services 
+  208  ls -lh
+  209  unxz services.xz 
+  210  ls -lh
+  211  zip services.zip services 
+  212  ls -lh
+  213  unzip services.zip 
+  214  ls -lh
+  215  clear
+  216  vim ~/file.txt
+  217  ls
+  218  cat file.txt 
+  219  ls
+  220  ls -l ~
+  221  echo "A new line" >> ~/file.txt 
+  222  cat file.txt 
+  223  touch ~/emptyfile.txt
+  224  cat emptyfile.txt 
+  225  ls -lh ~
+  226  mkdir ~/newdir
+  227  ls -l ~
+  228  mkdir ~/parent/child
+  229  mkdir -R ~/parent/child
+  230  mkdir -d ~/parent/child
+  231  mkdir -p ~/parent/child
+  232  find /home/user1/parent/child/
+  233  ls -lhd ~/parent/
+  234  ls -d ~/parent/
+  235  ls -d ~/parent/child/
+  236  mkdir ~/{dir1,dir2}
+  237  ls -lh
+  238  ls -lhd
+  239  ls -d
+  240  clear
+  241  mkdir copyexcerise
+  242  cd copyexcerise/
+  243  pwd
+  244  touch file1.txt
+  245  cp file1.txt file1-copy.txt
+  246  ls
+  247  mkdir dir1
+  248  cp file1.txt dir1/
+  249  ls
+  250  tree
+  251  cp file1.txt dir1/file1-copy.txt
+  252  ls
+  253  tree
+  254  cp -iv file1.txt dir1/file1-copy.txt
+  255  cp dir1 dir2
+  256  cp -R dir1 dir2
+  257  tree
+  258  ls
+  259  clear
+  260  ls
+  261  pwd
+  262  rm -rf dir.*
+  263  ls
+  264  rm -rf dir1
+  265  ls
+  266  rm dir2/
+  267  rm -rf dir2/
+  268  ls
+  269  clear
+  270  mkdir ./{dir1,dir2}
+  271  ls
+  272  cp file1.txt dir1
+  273  tree
+  274  cp file1-copy.txt dir2
+  275  tree
+  276  cp -r dir1 dir2
+  277  tree
+  278  cp -r dir2 dir1
+  279  tree
+  280  clear
+  281  pwd
+  282  cd ..
+  283  mkdir moveexcercise
+  284  cd moveexcercise/
+  285   touch mvfile.txt
+  286  ls -lh
+  287  mkdir mvdir
+  288  ls -l
+  289  mv mvfile.txt mvdir/
+  290  tree
+  291  pwd
+  292  tree
+  293  touch mvfile2.txt
+  294  mv mvfile2.txt mvfile2renamed.ttx
+  295  ls -l
+  296  mv mvdir/ mvdir/
+  297  mv mvdir/ mvdir2/
+  298  tree
+  299  pwd
+  300  ls
+  301  pwd
+  302  clera
+  303  clear
+  304  cd ..
+  305  mkdir removedir
+  306  cd removedir/
+  307  mkdir dir{1,2,3}
+  308  ls
+  309  touch file{a,b,c,d}
+  310  tree
+  311  touch dir1/file1
+  312  tree
+  313  rm -i filea
+  314  tree
+  315  rmdir dir2
+  316  ls
+  317  rmdir dir1
+  318  rmdir -ri dir1
+  319  rmdir -Ri dir1
+  320  ls
+  321  rmdir -Ri dir1
+  322  rmdir --help
+  323  rmdir -Ri dir1
+  324  rmdir -Rfi dir1
+  325  ls file[cd]
+  326  ls file{c,d}
+  327  ls file?.txt
+  328  ls 'file?.txt'
+  329  clear
+  330  cd..
+  331  cd ..
+  332  mkdir lnexcercise
+  333  cd lnexcercise/
+  334  pwd
+  335  touch file.txt
+  336  mkdir dir1
+  337  ls -l
+  338  ln file.txt filelink.txt
+  339  ls -l
+  340  stat file.txt 
+  341  stat filelink.txt 
+  342  ln -s file.txt filesymlink.txt
+  343  ls -l
+  344  rm file.txt
+  345  ls -l
+  346  cd ~
+  347  ls
+  348  vim vimfile.txt
+  349  ls
+  350  vim vimfile.txt
+  351  vim editfile.txt
+  352  help cd
+  353  clear
+  354  help clear
+  355  clear --help
+  356  man ls
+  357  man man-pages
+  358  man 1 intro
+  359  ls 1 intor
+  360  man 1 ls
+  361  man 2 ls
+  362  man 3 ls
+  363  man 3 lsblk
+  364  man 2 lsblk
+  365  man 1 lsblk
+  366  man 1 df
+  367  man 2 df
+  368  man -f df
+  369  man -f crontab
+  370  man -f lsblk
+  371  sudo systemctl start rsyslog
+  372  systemctl status rsyslog
+  373  sudo systemctl enable rsyslog
+  374  less -N /etc/rsyslog.conf 
+  375  logger "linux is so worth it"
+  376  sudo tail -f /var/log/messages 
+  377  journalctl
+  378  journalctl -k
+  379  journalctl /sbin/crond
+  380  journalctl -u crond
+  381  journalctl -f
+  382  ping google.com
+  383  echo "RPM is the tool to install/uninstall software in centos"
+  384  rpm -qa
+  385  rpm -q glib
+  386  rpm -qa | sort
+  387  rpm -qa bash
+  388  rpm -qi bash
+  389  rpm -qa Group="System Environment Shells"
+  390  rpm -qa Group="System Environment/Shells"
+  391  rpm -qa Group="Development Tools"
+  392  rpm -qa Group="Unspecified"
+  393  rpm -qi vim
+  394  rpm -qi vi
+  395  rpm -qi vi*
+  396  rpm -qa 
+  397  rpm -qi shadow-utils-4.6-16.el8.x86_64
+  398  rpm -qa Group="System Environment/Base"
+  399  rpm -qa Group="System Environment/Shell"
+  400  rpm -qa Group="System Environment/Shells"
+  401  rpm -qa --last
+  402  rpm -ql yum
+  403  rpm -qd yum
+  404  rpm -qc yum
+  405  rpm -qf /bin/bash
+  406  rpm -qdf /bin/bash
+  407  rpm -q --provides bash
+  408  rpm -q --requires bash
+  409  rpm -q --changelog bash
+  410  mkdir /tmp/packages
+  411  sudo yum install -y yum-plugin-downloadonly
+  412  sudo yum update
+  413  rpm -qa Group="System Environment/Shells"
+  414  sudo yum install -y yum-plugin-downloadonly
+  415  sudo yum install -y yum-plugin-downloadonly 
+  416  sudo yum install yum-plugin-downloadonly
+  417  yum install -downloadonly --downloaddir=/tmp/packages/ httpd
+  418  yum install --help
+  419  sudo yum install -downloadonly --downloaddir=/tmp/packages/ httpd
+  420  sudo yum install --downloadonly --downloaddir=/tmp/packages/ httpd
+  421  cd /tmp/packages/
+  422  ls
+  423  clear
+  424  ls
+  425  rpm -qip httpd-2.4.37-47.module_el8.6.0+1111+ce6f4ceb.1.x86_64.rpm 
+  426  rpm -qfp httpd-2.4.37-47.module_el8.6.0+1111+ce6f4ceb.1.x86_64.rpm 
+  427  rpm -qlp httpd-2.4.37-47.module_el8.6.0+1111+ce6f4ceb.1.x86_64.rpm 
+  428  man rpm
+  429  rpm --querytags
+  430  rpm -qa --queryformat "%{NAME} %{VERSION}\n"
+  431* rpm -qa --queryformat "%{NAME} \t %{VERSION}\n"|
+  432  rpm -qa --queryformat "%{NAME} \t \t %{VERSION}\n"
+  433  rpm -qa --queryformat "%-30{NAME} %-10{VERSION}\n"
+  434  rpm -ql bash | wc -l
+  435  rpm -q --qf "%{FILENAMES}\n" bash
+  436  rpm -q --qf "[%{FILENAMES}\n]" bash
+  437  rpm -q --qf "[%{FILENAMES} %{FILESIZES}\n]" bash
+  438  rpm -q --qf "[%-50{FILENAMES} %{FILESIZES}\n]" bash
+  439  rpm -q --qf "[%-30{FILENAMES} %{FILESIZES}\n]" bash
+  440  rpm -q --qf "[%-40{FILENAMES} %{FILESIZES}\n]" bash
+  441  rpm -q --qf "%{NAME} %{INSTALLTIME}\n"
+  442  rpm -q --qf bash "%{NAME} %{INSTALLTIME}\n"
+  443  rpm -q --qf "%{NAME} %{INSTALLTIME}\n" bash
+  444  rpm -q --qf "%{NAME} %{INSTALLTIME:date}\n" bash
+  445  rpm -q -qf "[%{FILEMODES} %{FILENAMES} \n]" bash
+  446  rpm -q --qf "[%{FILEMODES} %{FILENAMES} \n]" bash
+  447  rpm -q --qf "[%{FILEMODES:perms} %{FILENAMES} \n]" bash
+  448  man rpm
+  449  dnf --help
+  450  dnf --showduplicates list xfsprogs
+  451  dnf --help
+  452  dnf list --all
+  453* less dnf list --
+  454  dnf list --all --showduplicates
+  455  dnf list --installed
+  456  dnf list --updates
+  457  dnf list --update
+  458  dnf list --available
+  459  dnf list --obselete
+  460  dnf list --obseletes
+  461  dnf list --obsoletes
+  462  dnf inof
+  463  dnf info
+  464  dnf info dnf
+  465  dnf info yum
+  466  yum info yum
+  467  dnf info updates
+  468  dnf deplist dnf
+  469  dnf deplist httpd
+  470  dnf group list
+  471  clear
+  472  dnf group list
+  473  dnf group list hidden
+  474  dnf group info "Development Tools"
+  475  dnf search squid*
+  476  dnf search vim
+  477  dnf search --all vim
+  478  dnf list --all vi*
+  479  cear
+  480  clear
+  481  dnf provides vim
+  482  sudo dnf install -y tree
+  483  sudo dnf install -y epel-release
+  484  clear
+  485  sudo dnf install konsole
+  486  sudo dnf reinstall vim
+  487  clear
+  488  sudo dnf install --nodep wim
+  489  sudo dnf install --nodep  vim
+  490  sudo reinstall vim --skip-brokern
+  491  sudo reinstall vim --skip-broken
+  492  sudo dnf reinstall vim --skip-broken
+  493  dnf list updates
+  494  sudo dnf update epel-release-8-16.el8.noarch .noarch
+  495  sudo dnf remove teamd
+  496  dnf --help
+  497  sudo dnf autoremove
+  498  dnf group list ids
+  499  dnf install @security-tools
+  500  sudo dnf group install security-tools
+  501  dnf group list
+  502  dnf group list ids
+  503  sudo dnf group upgrade security-tools
+  504  sudo dnf group remove security-tools
+  505  dnf check-updaet
+  506  dnf check-update
+  507  dnf list --obsolete
+  508  dnf list check-update
+  509  sudo dnf upgrade grub2-tools
+  510  dnf list grub2.tools
+  511  dnf list --all grub2.tools
+  512  dnf --help
+  513  dnf info grub2.tools
+  514  dnf list --all
+  515  dnf list --all | grep grub
+  516  dnf list info grub2-tools
+  517  dnf info grub2-tools
+  518  sudo dnf upgrade
+  519  sudo dnf upgrade -x kernel*
+  520  sudo dnf install python3-dnf-plugin-versionlock
+  521  dnf list --showduplicates kernel
+  522  sudo dnf versionlock add kernel-4.18.0-394.el8
+  523  dnf versionlock list
+  524  sudo dnf versionlock delete kernel-kernel-0:4.18.0-394.el8.*
+  525  dnf versionlock list
+  526  sudo dnf versionlock delete kernel--0:4.18.0-394.el8.*
+  527  sudo dnf versionlock delete kernel-0:4.18.0-394.el8.*
+  528  dnf versionlock list
+  529  celar
+  530  clear
+  531  sudo dnf upgrade --security
+  532  dnf changelogs kernel
+  533  dnf changelog kernel
+  534  dnf changelog --upgrades
+  535  dnf list kernel
+  536  dnf list --all kernel
+  537  ls -l /boot/
+  538  uname -r
+  539  uname
+  540  sudo ls -l /boot/grub2/
+  541  sudo cat /etc/default/grub 
+  542  sudo grub2-mkconfig
+  543  clear
+  544  dnf list --available kernel
+  545  dnf list --updates kernel
+  546  dnf list --available vim
+  547  dnf list --available at
+  548  dnf list --available tree
+  549  dnf list --all
+  550  dnf list --available zimbra
+  551  dnf list --available squid
+  552  dnf list --available qmail
+  553  dnf list --available bind
+  554  dnf list --available python
+  555  dnf list --available python3
+  556  sudo dnf upgrade kernel
+  557  man dnf
+  558  ls /lib/modules/$(uname -r)/kernel
+  559  lsmod
+  560  clear
+  561  pwd
+  562  ls /lib/modules/$(uname -r)/kernel
+  563  lsmod
+  564  modinfo dm_mirror
+  565  sudo modprobe -vr dm_mirror
+
