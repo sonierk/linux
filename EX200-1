@@ -1,0 +1,204 @@
+cat /etc/passwd
+   26  cat /etc/shadow
+   27  cat /etc/login.defs 
+   28  id user1
+   29  cd /etc
+   30  ls
+   31  cd default/
+   32  ls
+   33  cat useradd 
+   34  ls
+   35  cd ..
+   36  cat /etc/passwd
+   37  cat /etc/shadow
+   38  cat /etc/login.defs 
+   39  cat /etc/default/useradd 
+   40  cat /etc/skel
+   41  cat /etc/skel/.bash_profile 
+   42  useradd
+   43  useradd bob
+   44  passwd bob
+   45  cat /etc/passwd
+   46  cat /etc/shadow
+   47  id bob
+   48  cat /etc/group
+   49  ls /home
+   50  ls -lah  /home/bob
+   51  userdel -r bob
+   52  cat /etc/passwd
+   53  ls -a /home
+   54  man useradd
+   55  useradd sally
+   56  passwd sally
+   57  cat /etc/passwd
+   58  usermod -u 1010 -g 1010 -d /home/jane -m -s /bin/zsh -l jane sally
+   59  groupadd -g 1010 jane
+   60  cat /etc/group
+   61  dnf install -y zsh
+   62  usermod -u 1010 -g 1010 -d /home/jane -m -s /bin/zsh -l jane sally
+   63  cat /etc/passwd
+   64  ls -l /home/
+   65  usermod -a -G audio jane
+   66  cat /etc/group
+   67  man usermod
+   68  man passwd
+   69  useradd brian
+   70  cat /etc/shadow
+   71  passwd brian
+   72  cat /etc/shadow
+   73  clear
+   74  passwd -l brian
+   75  cat /etc/shadow
+   76  passwd -S brian
+   77  passwd -u brian
+   78  passwd -S brian
+   79  cat /etc/shadow
+   80  less -N /etc/security/pwquality.conf
+   81  cat /etc/login.defs 
+   82  chage --help
+   83  chage -l brian
+   84  chage -d 0 brian
+   85  chage -l brian
+   86  su - brian
+   87  chage -l brian
+   88  chage -E 2025-01-01 brian
+   89  chage -l brian
+   90  chage -M 90 brian
+   91  chage -l brian
+   92  chage -W 30 brian
+   93  chage -l brian
+   94  chage -I 10 brian
+   95  chage -l brian
+   96  groupadd -g 1050 accounting
+   97  cat /etc/group
+   98  groupmod 1051 accounting
+   99  groupmod -g 1051 accounting
+  100  cat /etc/group
+  101  man groupmod
+  102  man groupadd
+  103  groupadd
+  104  gpasswd -a brian accounting 
+  105  usermod -a -G accounting brian
+  106  id brian
+  107  gpasswd accounting
+  108  cat /etc/gshadow
+  109  groups
+  110  gpasswd -d brian accounting
+  111  id brian
+  112  gpasswd -A brian accounting 
+  113  id brian
+  114  groupdel accounting
+  115  cat /etc/group
+
+
+ip addr
+  572  su -
+  573  clear
+  574  w
+  575  whoami
+  576  logname
+  577  su root
+  578  su - root
+  579  echo $PATH
+  580  su - root
+  581  sudo cat /etc/shadow
+  582  sudo visudo
+  583  less /etc/group
+  584  useradd
+  585  sudo dnf install -y ksh
+  586  useradd
+  587  sudo useradd -u 1100 -s /bin/ksh -G wheel steve
+  588  sudo useradd sue
+  589  sudo useradd taylor
+  590  sudo groupadd developers
+  591  id steve
+  592  id sue
+  593  id taylor
+  594  sudo gpasswd -M sue,taylor,steve developers
+  595  cat /etc/group
+  596  sudo pwasswd developers
+  597  sudo gpasswd developers
+  598  usermod
+  599  chage
+  600  sudo chage -E 90 -W 5 steve
+  
+  cat /proc/partitions 
+   13  lsblk
+   14  sudo fdisk -l /dev/sda
+   15  ls -l /dev/
+   16  sudo gdisk /dev/sda
+   17  lsblk
+   18  sudo gdisk /dev/sdb
+   19  clar
+   20  clear
+   21  sudo gdisk /dev/sdb
+   22  clear
+   23  sudo gdisk /dev/sdb
+   24  cat /proc/partitions 
+   25  lsblk
+   26  sudo pvcreate /dev/sdb1
+   27  pvs
+   28  sudo pvs
+   29  sudo pvdisplay
+   30  sudo lsblk
+   31  sudo lvs
+   32  vgs
+   33  sudo vgs
+   34  clear
+   35  sudo pvs
+   36  sudo pvdisplay
+   37  sudo vgcreate vgdata /dev/sdb1
+   38  sudo vgs
+   39  sudo vgdisplay
+   40  sudo lvcreate --name lvdata --size 495M vgdata
+   41  sudo lvs
+   42  sudo lvdisplay
+   43  sudo mkfs -t xfs /dev/vgdata/lvdata
+   44  sudo blkid
+   45  sudo mkdir /media/lvdata
+   46  sudo mount /dev/vgdata/lvdata /media/lvdata/
+   47  df -T
+   48  mount
+   49  clear
+   50  sudo vi /etc/fstab 
+   51  sudo umount /media/lvdata
+   52  mount -a
+   53  sudo mount -a
+   54  sudo mount
+   55  sudo gdisk /dev/sdb
+   56  clear
+   57  cat /proc/partitions 
+   58  sudo partprobe
+   59  cat /proc/partitions 
+   60  sudo mkfs -t ext4 /dev/sdb2
+   61  sudo mkfs -t ext4 /dev/sdb3
+   62  clear
+   63  sudo blkid
+   64  sudo mkdir /media/sdb2
+   65  sudo mkdir /media/sdb3
+   66  sudo blkid
+   67  sudo vi /etc/fstab 
+   68  sudo e2label /dev/sdb3 backups
+   69  sudo e2label /dev/sdb3
+   70  sudo tune2fs -l /dev/sdb3
+   71  sudo vi /etc/fstab 
+   72  sudo mount -a
+   73  sudo lsblk
+   74  sudo poweroff
+   75  cat /proc/partitions 
+   76  sudo gdisk /dev/sdc
+   77  cat /proc/partitions 
+   78  sudo lsblk
+   79  sudo pvcreate /dev/sdc1
+   80  sudo pvs
+   81  sudo vgs
+   82  sudo vgextend vgdata /sdc1
+   83  sudo vgextend vgdata /dev/sdc1
+   84  sudo vgs
+   85  sudo lvs
+   86  sudo lvresize -l 100%FREE /dev/vgdata/lvdata
+   87  sudo lvs
+   88  df -h
+   89  sudo xfs_growfs /dev/vgdata/lvdata
+   90  df -h
+
